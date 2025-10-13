@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
-/*Asignar los valores */
+/*Asignar los atributos de la clase */
 public class Factura {
     String npieza;
     String tipo;
@@ -86,3 +86,4 @@ public class Factura {
 
     }
 }
+
