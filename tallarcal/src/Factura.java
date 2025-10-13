@@ -70,7 +70,7 @@ public class Factura {
         return detcom;
     }
 
-    public void obtener(String npieza,String tipo,int cantidad,double precio){
+    public void obtener(){
         System.out.println("-----------------------------------------------------------");
         System.out.println("ID DEL PRODUCTO :   "+npieza);
         System.out.println("-----------------------------------------------------------");
