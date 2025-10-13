@@ -2,13 +2,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
-
+/*Asignar los valores */
 public class Factura {
     String npieza;
     String tipo;
     int cantidad;
     double precio;
-
+/*Creacion de constructores y destructores*/
     public Factura() {
     }
 
@@ -18,7 +18,7 @@ public class Factura {
         this.cantidad = cantidad;
         this.precio = precio;
     }
-
+/*Creacion de getter and setter*/
     public String getNpieza() {
         Scanner sc =new Scanner(System.in);
         npieza= sc.nextLine();
@@ -69,7 +69,7 @@ public class Factura {
         detcom= precio*cantidad;
         return detcom;
     }
-
+/*Metodos del programador*/
     public void obtener(){
         System.out.println("-----------------------------------------------------------");
         System.out.println("ID DEL PRODUCTO :   "+npieza);
