@@ -26,17 +26,17 @@ public class Main {
         Scanner sc =new Scanner(System.in);
 
         System.out.println("Ingrese el ID del producto:");
-        String npieza= factura1.getNpieza();
+        factura1.npieza= factura1.getNpieza();
 
         System.out.println("Ingrese el Nombre del producto:");
-        String tipo= factura1.getTipo();
+        factura1.tipo= factura1.getTipo();
         System.out.println("Ingrese la cantidad de productos vendidos:");
-        int cantidad = factura1.getCantidad();
+        factura1.cantidad = factura1.getCantidad();
         System.out.println("Ingrese el precio del producto:");
-        double precio = factura1.getPrecio();
+        factura1.precio = factura1.getPrecio();
         monto = factura1.obtenerMontoFactura();
 
-        factura1.obtener(String npieza,String tipo,int cantidad,double precio);
+        factura1.obtener();
 
         JOptionPane.showMessageDialog(null,"El monto total de la factura es: " +monto);
         System.out.println("Ingrese los datos de la factura");
