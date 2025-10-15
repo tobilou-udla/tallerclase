@@ -1,89 +1,75 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-/*Asignar los atributos de la clase */
 public class Factura {
-    String npieza;
-    String tipo;
-    int cantidad;
-    double precio;
-/*Creacion de constructores y destructores*/
+    private String npieza;
+    private String tipo;
+    private int cantidad;
+    private double precio;
+
     public Factura() {
     }
 
     public Factura(String npieza, String tipo, int cantidad, double precio) {
-        this.npieza = npieza;
-        this.tipo = tipo;
-        this.cantidad = cantidad;
-        this.precio = precio;
+        setNpieza(npieza);
+        setTipo(tipo);
+        setCantidad(cantidad);
+        setPrecio(precio);
     }
-/*Creacion de getter and setter*/
-    public String getNpieza() {
-        Scanner sc =new Scanner(System.in);
-        npieza= sc.nextLine();
 
+    public String getNpieza() {
         return npieza;
     }
 
     public void setNpieza(String npieza) {
-        this.npieza = npieza;
+        this.npieza = (npieza == null) ? "" : npieza.trim();
     }
 
     public String getTipo() {
-        Scanner sc =new Scanner(System.in);
-        tipo = sc.nextLine();
         return tipo;
     }
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        this.tipo = (tipo == null) ? "" : tipo.trim();
     }
 
-    public int getCantidad()  {
-        Scanner sc =new Scanner(System.in);
-        cantidad= sc.nextInt();
-        if (cantidad<0)
-            cantidad= 0;
+    public int getCantidad() {
         return cantidad;
     }
 
     public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+        this.cantidad = (cantidad < 0) ? 0 : cantidad;
     }
 
     public double getPrecio() {
-        Scanner sc =new Scanner(System.in);
-        precio= sc.nextDouble();
-        if (precio<0)
-            precio=0.0;
         return precio;
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+        this.precio = (precio < 0.0) ? 0.0 : precio;
     }
 
-    public double obtenerMontoFactura(){
-        double detcom;
-        detcom= precio*cantidad;
-        return detcom;
+    public double obtenerMontoFactura() {
+        return cantidad * precio;
     }
-/*Metodos del programador*/
-    public void obtener(){
-        System.out.println("-----------------------------------------------------------");
-        System.out.println("ID DEL PRODUCTO :   "+npieza);
-        System.out.println("-----------------------------------------------------------");
-        System.out.println("NOMBRE DEL PRODCUTO :"+tipo);
-        System.out.println("-----------------------------------------------------------");
-        System.out.println("CANTIDAD DE PRODUCTOS:"+cantidad);
-        System.out.println("-----------------------------------------------------------");
-        System.out.println("PRECIO DE PRODUCTOS  :"+precio);
 
+    // Conserva el método de impresión que ya usabas
+    public void obtener() {
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("ID DEL PRODUCTO       : " + npieza);
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("NOMBRE DEL PRODUCTO   : " + tipo);
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("CANTIDAD DE PRODUCTOS : " + cantidad);
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("PRECIO DE PRODUCTO    : " + precio);
     }
-    public void Pruebafactura(){
 
-
+    @Override
+    public String toString() {
+        return "Factura{" +
+                "npieza='" + npieza + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", cantidad=" + cantidad +
+                ", precio=" + String.format("%.2f", precio) +
+                '}';
     }
 }
 

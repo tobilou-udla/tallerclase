@@ -8,48 +8,35 @@
  * y después devuelva ese monto como un valor double. Si la cantidad no es positiva, debe establecerse en 0. Si el precio por artículo no es
  * positivo, debe establecerse en 0.0. Escriba una aplicación de
  * prueba llamada PruebaFactura, que demuestre las capacidades de la clase Factura.*/
-import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        Factura factura1= new Factura();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        double monto;
-
-        Scanner sc =new Scanner(System.in);
-
-        System.out.println("Ingrese el ID del producto:");
-        factura1.npieza= factura1.getNpieza();
-
-        System.out.println("Ingrese el Nombre del producto:");
-        factura1.tipo= factura1.getTipo();
-        System.out.println("Ingrese la cantidad de productos vendidos:");
-        factura1.cantidad = factura1.getCantidad();
-        System.out.println("Ingrese el precio del producto:");
-        factura1.precio = factura1.getPrecio();
-        monto = factura1.obtenerMontoFactura();
-
-        factura1.obtener();
-
-        JOptionPane.showMessageDialog(null,"El monto total de la factura es: " +monto);
         System.out.println("Ingrese los datos de la factura");
-        factura1.Pruebafactura();
 
+        System.out.print("ID del producto: ");
+        String id = sc.nextLine().trim();
 
+        System.out.print("Nombre/Descripción del producto: ");
+        String descripcion = sc.nextLine().trim();
 
+        System.out.print("Cantidad de productos vendidos (entero >= 0): ");
+        String cantidadStr = sc.nextLine().trim();
+        int cantidad = Integer.parseInt(cantidadStr); // Asume entrada válida
 
+        System.out.print("Precio unitario del producto (>= 0): ");
+        String precioStr = sc.nextLine().trim();
+        double precio = Double.parseDouble(precioStr); // Asume entrada válida
 
+        Factura factura = new Factura(id, descripcion, cantidad, precio);
+        double monto = factura.obtenerMontoFactura();
 
+        System.out.println("\nResumen de la factura:");
+        factura.obtener();
+        System.out.printf("Monto total de la factura: %.2f%n", monto);
 
-
-
+        sc.close();
     }
-
 }
