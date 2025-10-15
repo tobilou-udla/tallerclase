@@ -50,7 +50,7 @@ public class Factura {
         return cantidad * precio;
     }
 
-    // Conserva el método de impresión que ya usabas
+    // método de impresión
     public void obtener() {
         System.out.println("-----------------------------------------------------------");
         System.out.println("ID DEL PRODUCTO       : " + npieza);
@@ -62,14 +62,6 @@ public class Factura {
         System.out.println("PRECIO DE PRODUCTO    : " + precio);
     }
 
-    @Override
-    public String toString() {
-        return "Factura{" +
-                "npieza='" + npieza + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", cantidad=" + cantidad +
-                ", precio=" + String.format("%.2f", precio) +
-                '}';
-    }
 }
+
 
