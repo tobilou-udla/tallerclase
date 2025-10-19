@@ -33,21 +33,15 @@ public class Main {
 
         System.out.println("Ingrese los datos de la factura");
 
-        System.out.print("ID del producto: ");
+        String id = JOptionPane.showInputDialog("ID del producto: ");
 
-        String id = sc.nextLine();
+        String descripcion = JOptionPane.showInputDialog("Nombre/Descripción del producto: ");
 
-        System.out.print("Nombre/Descripción del producto: ");
-
-        String descripcion = sc.nextLine();
-
-        System.out.print("Cantidad de productos vendidos (entero >= 0): ");
-        String cantidadStr = sc.nextLine();
-        int cantidad = Integer.parseInt(cantidadStr); // Asume entrada válida
+        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Cantidad de productos vendidos (entero >= 0): ")); // Asume entrada válida
 
         System.out.print("Precio unitario del producto (>= 0): ");
-        String precioStr = sc.nextLine();
-        double precio = Double.parseDouble(precioStr); // Asume entrada válida
+
+        double precio = Double.parseDouble(JOptionPane.showInputDialog("Cantidad de productos vendidos (entero >= 0): ")); // Asume entrada válida
 
         Factura factura = new Factura(id, descripcion, cantidad, precio);
         double monto = factura.obtenerMontoFactura();
